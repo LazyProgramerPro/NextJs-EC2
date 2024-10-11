@@ -1,5 +1,7 @@
-import { Button } from "@nextui-org/react";
-import { useFormStatus } from "react-dom";
+'use client';
+
+import { useFormStatus } from 'react-dom';
+import { Button } from '@nextui-org/react';
 
 interface FormButtonProps {
   children: React.ReactNode;

@@ -1,23 +1,22 @@
-"use client";
+'use client';
 
+import { useFormState } from 'react-dom';
 import {
-  Button,
   Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
+  Button,
   Textarea,
-} from "@nextui-org/react";
-
-import * as actions from "@/actions";
-import { useFormState } from "react-dom";
-import FormButton from "../common/form-button";
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from '@nextui-org/react';
+import * as actions from '@/actions';
+import FormButton from '@/components/common/form-button';
 
 export default function TopicCreateForm() {
   const [formState, action] = useFormState(actions.createTopic, {
     errors: {},
   });
-  // thành phần init formState = {message:""}
+
   return (
     <Popover placement="left">
       <PopoverTrigger>
@@ -33,7 +32,7 @@ export default function TopicCreateForm() {
               labelPlacement="outside"
               placeholder="Name"
               isInvalid={!!formState.errors.name}
-              errorMessage={formState.errors.name?.join(", ")}
+              errorMessage={formState.errors.name?.join(', ')}
             />
 
             <Textarea
@@ -42,18 +41,16 @@ export default function TopicCreateForm() {
               labelPlacement="outside"
               placeholder="Describe your topic"
               isInvalid={!!formState.errors.description}
-              errorMessage={formState.errors.description?.join(", ")}
+              errorMessage={formState.errors.description?.join(', ')}
             />
-
-            {/* Phải đăng nhập */}
 
             {formState.errors._form ? (
               <div className="rounded p-2 bg-red-200 border border-red-400">
-                {formState.errors._form?.join(", ")}
+                {formState.errors._form?.join(', ')}
               </div>
             ) : null}
 
-            <FormButton>Submit</FormButton>
+            <FormButton>Save</FormButton>
           </div>
         </form>
       </PopoverContent>

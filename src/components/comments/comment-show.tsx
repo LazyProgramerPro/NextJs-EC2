@@ -1,18 +1,13 @@
-import Image from "next/image";
-import { Button } from "@nextui-org/react";
-import CommentCreateForm from "@/components/comments/comment-create-form";
-import {
-  CommentWithAuthor,
-  fetchCommentsByPostId,
-} from "@/db/queries/comments";
+import type { CommentWithAuthor } from '@/db/queries/comments';
+import Image from 'next/image';
+import CommentCreateForm from '@/components/comments/comment-create-form';
+import { fetchCommentsByPostId } from '@/db/queries/comments';
 
 interface CommentShowProps {
   commentId: string;
-  // comments: CommentWithAuthor[];
   postId: string;
 }
 
-// TODO: Get a list of comments
 export default async function CommentShow({
   commentId,
   postId,
@@ -33,7 +28,7 @@ export default async function CommentShow({
     <div className="p-4 border mt-2 mb-1">
       <div className="flex gap-3">
         <Image
-          src={comment.user.image || ""}
+          src={comment.user.image || ''}
           alt="user image"
           width={40}
           height={40}
